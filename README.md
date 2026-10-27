@@ -25,7 +25,7 @@ course material is included.
 > ### What has been run
 > | | Status |
 > |---|---|
-> | **pytest suite** (87 tests, offline) | **Passing** locally (Python 3.13). The GitHub Actions workflow runs it on Python 3.10–3.13. |
+> | **pytest suite** (87 tests, offline) | **Passing** locally (Python 3.13) and in GitHub Actions on Python 3.10–3.13, plus a `--fast` smoke run of both scripts. |
 > | **Part 1**: baseline design, requirement checks, range budget, trade study over 2,745 PRF × scan-rate designs, Albersheim accuracy | **Run** (`python scripts/run_part1.py`, 3.7 min). Results in `results/part1/`, figures `figures/part1_*.png`. |
 > | **Part 2**: one dwell with three echoes, noise estimation, binary-integration design, detections and RCS estimates; Monte Carlo checks of Pfa, Pd, M-of-N and CFAR | **Run** (`python scripts/run_part2.py`, 3 s, seed 20260427). Results in `results/part2/`, figures `figures/part2_*.png`. |
 > | Coherent Doppler processing, elevation beam coverage, multiple-PRF range-ambiguity resolution, tracking | **Not modelled** (see [Scope](#honest-scope)). |

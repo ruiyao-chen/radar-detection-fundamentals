@@ -1,0 +1,51 @@
+baseline design: {"freq_hz": 10000000000.0, "peak_power_w": 1000.0, "pulse_width_s": 2e-05, "bandwidth_hz": 12000000.0, "prf_hz": 5000.0, "beamwidth_az_deg": 1.2, "beamwidth_el_deg": 6.0, "scan_rate_deg_s": 40.0, "noise_figure_db": 4.0, "system_loss_db": 6.0, "max_duty": 0.15}
+  wavelength_m                 0.0299792458
+  gain_db                      35.5764085153955
+  range_resolution_m           12.491352416666667
+  compression_gain_db          23.80211241711606
+  duty                         0.1
+  avg_power_w                  100.0
+  noise_power_dbm              -99.18337473375186
+  slant_near_m                 11664.931246993685
+  slant_far_m                  50376.17086414484
+  grazing_near_deg             30.92110428132854
+  grazing_far_deg              6.671738183585122
+  cross_range_res_far_m        1055.0760553518774
+  revisit_s                    3.0
+  time_on_target_s             0.03
+  pulses_on_target             150
+  pfa                          1.388888888888889e-09
+  snr_far_db                   5.601892769414531
+  snr_required_db              4.056563636144599
+  margin_db                    1.5453291332699322
+  pd_far                       0.8550780149879107
+  pd_far_swerling0             1.0
+  pd_far_albersheim            1.0
+  clutter_spread_hz            138.77680818548285
+  mdv_ms                       1.0401060109830105
+  prf_min_hz                   4141.545950563307
+  blind_speed_ms               74.9481145
+  unambiguous_range_m          29979.2458
+  range_ambiguities            1
+  clutter_rcs_near_dbsm        17.619684074415996
+  clutter_rcs_far_dbsm         16.879787140381712
+  target_to_clutter_far_db     -6.879787140381712
+  target_to_clutter_near_db    -7.6196840744159955
+  cnr_far_db                   12.481679909796243
+  pd_far_endo_clutter          0.06344974286388884
+  feasible                     True
+
+                                 check        value op         spec  required  pass
+            Pd at far edge, Swerling 1     0.855078 >=     0.800000      True  True
+                       revisit time, s     3.000000 <=     4.000000      True  True
+                   range resolution, m    12.491352 <=    15.000000      True  True
+PRF for +/- v_max past the clutter, Hz  5000.000000 >=  4141.545951      True  True
+                            duty cycle     0.100000 <=     0.150000      True  True
+            MDV vs slowest target, m/s     1.040106 <=     2.000000      True  True
+      unambiguous range vs far edge, m 29979.245800 >= 50376.170864     False False
+
+trade study: 2745 designs, 288 feasible; PRF 4250-7250 Hz, scan 30.0-105.0 deg/s
+
+Albersheim - exact: Pd 0.5-0.9 max |err| 0.28 dB; all Pd max |err| 4.08 dB at {'pfa': 0.001, 'n': 1.0, 'pd': 0.1}
+
+done in 224 s -> results/part1, figures/part1_*.png

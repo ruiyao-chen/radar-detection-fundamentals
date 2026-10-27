@@ -1,0 +1,8 @@
+check,value,op,spec,required,pass
+"Pd at far edge, Swerling 1",0.8550780149879107,>=,0.8,True,True
+"revisit time, s",3.0,<=,4.0,True,True
+"range resolution, m",12.491352416666667,<=,15.0,True,True
+"PRF for +/- v_max past the clutter, Hz",5000.0,>=,4141.545950563307,True,True
+duty cycle,0.1,<=,0.15,True,True
+"MDV vs slowest target, m/s",1.0401060109830105,<=,2.0,True,True
+"unambiguous range vs far edge, m",29979.2458,>=,50376.17086414484,False,False

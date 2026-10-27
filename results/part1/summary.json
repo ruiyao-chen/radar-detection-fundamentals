@@ -1,0 +1,174 @@
+{
+  "design": {
+    "freq_hz": 10000000000.0,
+    "peak_power_w": 1000.0,
+    "pulse_width_s": 2e-05,
+    "bandwidth_hz": 12000000.0,
+    "prf_hz": 5000.0,
+    "beamwidth_az_deg": 1.2,
+    "beamwidth_el_deg": 6.0,
+    "scan_rate_deg_s": 40.0,
+    "noise_figure_db": 4.0,
+    "system_loss_db": 6.0,
+    "max_duty": 0.15
+  },
+  "scenario": {
+    "altitude_m": 6000.0,
+    "platform_speed_ms": 100.0,
+    "ground_range_min_m": 10000.0,
+    "ground_range_max_m": 50000.0,
+    "sector_deg": 120.0,
+    "target_rcs_m2": 10.0,
+    "target_speed_min_ms": 2.0,
+    "target_speed_max_ms": 30.0,
+    "pd_required": 0.8,
+    "false_alarm_time_s": 60.0,
+    "revisit_max_s": 4.0,
+    "range_resolution_max_m": 15.0,
+    "gamma_db": -15.0,
+    "atm_loss_db_per_km": 0.02
+  },
+  "metrics": {
+    "wavelength_m": 0.0299792458,
+    "gain_db": 35.5764085153955,
+    "range_resolution_m": 12.491352416666667,
+    "compression_gain_db": 23.80211241711606,
+    "duty": 0.1,
+    "avg_power_w": 100.0,
+    "noise_power_dbm": -99.18337473375186,
+    "slant_near_m": 11664.931246993685,
+    "slant_far_m": 50376.17086414484,
+    "grazing_near_deg": 30.92110428132854,
+    "grazing_far_deg": 6.671738183585122,
+    "cross_range_res_far_m": 1055.0760553518774,
+    "revisit_s": 3.0,
+    "time_on_target_s": 0.03,
+    "pulses_on_target": 150,
+    "pfa": 1.388888888888889e-09,
+    "snr_far_db": 5.601892769414531,
+    "snr_required_db": 4.056563636144599,
+    "margin_db": 1.5453291332699322,
+    "pd_far": 0.8550780149879107,
+    "pd_far_swerling0": 1.0,
+    "pd_far_albersheim": 1.0,
+    "clutter_spread_hz": 138.77680818548285,
+    "mdv_ms": 1.0401060109830105,
+    "prf_min_hz": 4141.545950563307,
+    "blind_speed_ms": 74.9481145,
+    "unambiguous_range_m": 29979.2458,
+    "range_ambiguities": 1,
+    "clutter_rcs_near_dbsm": 17.619684074415996,
+    "clutter_rcs_far_dbsm": 16.879787140381712,
+    "target_to_clutter_far_db": -6.879787140381712,
+    "target_to_clutter_near_db": -7.6196840744159955,
+    "cnr_far_db": 12.481679909796243,
+    "pd_far_endo_clutter": 0.06344974286388884,
+    "feasible": true
+  },
+  "checks": [
+    {
+      "check": "Pd at far edge, Swerling 1",
+      "value": 0.8550780149879107,
+      "op": ">=",
+      "spec": 0.8,
+      "required": true,
+      "pass": true
+    },
+    {
+      "check": "revisit time, s",
+      "value": 3.0,
+      "op": "<=",
+      "spec": 4.0,
+      "required": true,
+      "pass": true
+    },
+    {
+      "check": "range resolution, m",
+      "value": 12.491352416666667,
+      "op": "<=",
+      "spec": 15.0,
+      "required": true,
+      "pass": true
+    },
+    {
+      "check": "PRF for +/- v_max past the clutter, Hz",
+      "value": 5000.0,
+      "op": ">=",
+      "spec": 4141.545950563307,
+      "required": true,
+      "pass": true
+    },
+    {
+      "check": "duty cycle",
+      "value": 0.1,
+      "op": "<=",
+      "spec": 0.15,
+      "required": true,
+      "pass": true
+    },
+    {
+      "check": "MDV vs slowest target, m/s",
+      "value": 1.0401060109830105,
+      "op": "<=",
+      "spec": 2.0,
+      "required": true,
+      "pass": true
+    },
+    {
+      "check": "unambiguous range vs far edge, m",
+      "value": 29979.2458,
+      "op": ">=",
+      "spec": 50376.17086414484,
+      "required": false,
+      "pass": false
+    }
+  ],
+  "trade": {
+    "n_designs": 2745,
+    "n_feasible": 288,
+    "fail_counts": {
+      "fail_pd": 1204,
+      "fail_revisit": 360,
+      "fail_doppler": 793,
+      "fail_duty": 1159
+    }
+  },
+  "albersheim": {
+    "max_abs_err_db_pd_0p5_0p9": 0.281856163239377,
+    "max_abs_err_db_all": 4.0806004113528225,
+    "worst": {
+      "pfa": 0.001,
+      "n": 1.0,
+      "pd": 0.1,
+      "exact_db": 4.076840491622126,
+      "albersheim_db": -0.0037599197306964057,
+      "error_db": -4.0806004113528225
+    }
+  },
+  "budget_endpoints": [
+    {
+      "ground_km": 10.0,
+      "slant_km": 11.6649,
+      "grazing_deg": 30.9211,
+      "snr_db": 31.7898,
+      "cnr_db": 39.4095,
+      "tcr_db": -7.6197,
+      "pd_sw1": 1.0,
+      "pd_sw0": 1.0,
+      "pd_albersheim_sw0": 1.0,
+      "pd_endo": 0.0464
+    },
+    {
+      "ground_km": 50.0,
+      "slant_km": 50.3762,
+      "grazing_deg": 6.6717,
+      "snr_db": 5.6019,
+      "cnr_db": 12.4817,
+      "tcr_db": -6.8798,
+      "pd_sw1": 0.8551,
+      "pd_sw0": 1.0,
+      "pd_albersheim_sw0": 1.0,
+      "pd_endo": 0.0634
+    }
+  ]
+}
